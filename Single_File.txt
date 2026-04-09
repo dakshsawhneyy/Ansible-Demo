@@ -1,11 +1,3 @@
-# Commands
-ansible -i <inv_file> servers -m ping
-
-ansible -i <inv_file> servers -a "uptime"
-ansible -i <inv_file> servers -a "sudo apt-get update"
-ansible -i <inv_file> servers -a "sudo apt-get install nginx" --become -v
-
-
 # Inventory
 
 [servers]
@@ -16,3 +8,20 @@ worker-node-2 ansible_host=<ip_address> ansible_user=ubuntu
 ansible_ssh_private_key_file=/home/ubuntu/ansible_master_key
 ansible_python_interpreter=/usr/bin/python3   # view by `which python` command
 ansible_host_key_checking=false
+
+# Commands
+ansible -i <inv_file> servers -m ping
+
+ansible -i <inv_file> servers -a "uptime"
+ansible -i <inv_file> servers -a "sudo apt-get update"
+ansible -i <inv_file> servers -a "sudo apt-get install nginx" --become -v
+
+# Playbooks
+---
+- name: Saying Hello
+  hosts: servers
+  become: yes
+
+tasks:
+  - name: Greet User
+    command: echo "Hello Daksh"
