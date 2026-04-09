@@ -3,6 +3,7 @@ ansible -i <inv_file> servers -m ping
 
 
 # Inventory
+
 [servers]
 worker-node-1 ansible_host=<ip_address> ansible_user=ubuntu
 worker-node-2 ansible_host=<ip_address> ansible_user=ubuntu
