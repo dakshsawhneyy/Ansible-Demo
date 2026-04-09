@@ -1,0 +1,5 @@
+# Commands
+ansible -i <inv_file> servers -m ping
+
+
+# Inventory
