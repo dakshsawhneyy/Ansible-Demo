@@ -14,7 +14,7 @@
 - name: Add users to Docker group
   user:
     name: "{{ item }}"
-    group: docker
+    groups: docker
     append: true
   loop: "{{ docker_users }}"
 
