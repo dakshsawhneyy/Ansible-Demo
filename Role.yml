@@ -33,6 +33,8 @@
   debug:
     msg: "{{ docker_version }}"
 
+- name: Show Running Containers
+  command: docker ps
 
 # Create Playbook
 ---
